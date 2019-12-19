@@ -4,6 +4,24 @@ body {
   margin: 0;
 }
 
+footer{
+  padding: $big-spacing;
+  background: $navy;
+}
+
+.header{
+  background: $white;
+  padding: $small-spacing;
+  padding-left: $base-spacing;
+  border-bottom: 3px solid #a6afbe;
+  text-decoration: none;
+
+  a {
+    text-decoration: none;
+    color: $black;
+  }
+}
+
 .button {
   border-radius: 3px;
   padding: 10px 30px;
