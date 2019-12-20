@@ -58,26 +58,74 @@ footer{
 }
 
 .tab-menu {
-  border-bottom: 3px solid #a6afbe;
+  border-bottom: 1px solid #a6afbe;
   display: flex;
   margin: auto;
-  margin-bottom: $base-spacing;
-  padding: 0 $small-spacing;
+  margin-bottom: $small-spacing;
+  margin-top: $base-spacing;
+  max-width: 1000px;
 
   .tab-menu__item {
     cursor: pointer;
     font-size: 14px;
     font-weight: 300;
-    text-align: center;
+    text-align: left;
     text-transform: uppercase;
+    text-indent: $small-spacing;
     margin-right: $base-spacing;
+    margin-bottom: 3px;
     padding: $small-spacing 0;
+    min-width: 20%;
 
     &.selected {
       font-weight: 600;
-      box-shadow: 0px 3px 0 0 $blue;  
+      box-shadow: 0px 3px 0 0 $blue;
     }
   }
+}
+
+// Style accordion tabs
+.accordion {
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  border-top: 1px solid #a6afbe;
+}
+
+.accordion:before {
+  content: '\2303';
+  font-size: 24px;
+  color: $blue-gray;
+  float: left;
+  display: inline-block;
+  margin-right: $base-spacing;
+  margin-bottom: $base-spacing;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.active:before {
+  content: "\2303";
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+// Style the accordion panel. Note: hidden by default
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  display: none;
+  overflow: hidden;
 }
 
 .hidden {

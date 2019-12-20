@@ -5,12 +5,35 @@
 
   <div class="tabs">
     <div class="tab-menu">
-      <div class="tab-menu__item selected" target="#page1">Page 1</div>
-      <div class="tab-menu__item" target="#page2">Page 2</div>
+      <div class="tab-menu__item selected" target="#page1">Accordion</div>
+      <div class="tab-menu__item" target="#page2">Graph</div>
     </div>
   
     <div class="tab-content " id="page1">
-      <div class="card box-shadow">
+      <div class="card no-pad box-shadow">
+        <button class="accordion">
+
+          <table style="width:80%">
+            <tr>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              <th>Age</th>
+            </tr>
+          </table>
+        </button>
+        <div class="panel">
+          <p>Lorem ipsum...</p>
+        </div>
+
+        <button class="accordion">Section 2</button>
+        <div class="panel">
+          <p>Lorem ipsum...</p>
+        </div>
+
+        <button class="accordion">Section 3</button>
+        <div class="panel">
+          <p>Lorem ipsum...</p>
+        </div>
         <%= @videos %>
       </div>
     </div>
@@ -23,3 +46,33 @@
   </div>
 
 </div>
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            var j;
+
+            for (j = 0; j < acc.length; j++) {
+                if (acc[j] === this){
+                    this.classList.toggle("active");
+                    panel = this.nextElementSibling;
+                    if (panel.style.display === "block") {
+                        panel.style.display = "none";
+                    } else {
+                        panel.style.display = "block";
+                    }
+                }else{
+                    acc[j].className = acc[j].className.replace(" active", "");
+                    var panel = acc[j].nextElementSibling;
+                    if (panel.style.display === "block") {
+                        panel.style.display = "none";
+                    }
+                }
+            }
+
+        });
+    }
+</script>
