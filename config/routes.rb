@@ -3,4 +3,10 @@ Rails.application.routes.draw do
   root 'static#home'
 
   get '/page', to: 'pages#show'
+
+  scope '/api' do
+    scope '/youtube' do
+      get '/videos' => 'pages#videos'
+    end
+  end
 end

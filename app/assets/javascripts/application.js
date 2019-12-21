@@ -15,4 +15,6 @@
 //= require turbolinks
 //= require jquery
 //= require tab-menu.js
+//= require accordion.js
+//= require get-videos.js
 //= require_tree .
