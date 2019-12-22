@@ -133,6 +133,20 @@ footer{
   outline: none;
   transition: 0.4s;
   border-top: 1px solid #a6afbe;
+
+  table{
+    width: 90%;
+
+    td{
+      width: 40%;
+      font-size: 14px;
+      font-weight: bold;
+      &.date{
+        width: 20%;
+        font-weight: normal;
+      }
+    }
+  }
 }
 
 //
@@ -166,19 +180,31 @@ footer{
   background-color: white;
   display: none;
   overflow: hidden;
-}
 
-table{
-  width: 90%;
+  .panel-top{
+    display: inline-flex;
 
-  td{
-    width: 40%;
-    font-size: 14px;
-    font-weight: bold;
-    &.date{
-      width: 20%;
-      font-weight: normal;
+    img{
+      width: 25%;
     }
+
+    .panel-text{
+      margin-left: $small-spacing;
+    }
+
+    .label{
+      margin-top: 0;
+    }
+  }
+
+  table {
+    text-align: left;
+    width: 100%;
+  }
+
+  .label{
+    font-weight: normal;
+    color: $blue-dark-gray;
   }
 }
 
