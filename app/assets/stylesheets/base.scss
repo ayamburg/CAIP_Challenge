@@ -22,21 +22,6 @@ footer{
   }
 }
 
-.button {
-  border-radius: 3px;
-  padding: 10px 30px;
-  text-decoration: none;
-
-  &.primary {
-    background: $blue;
-    color: $white;
-
-    &:hover {
-      background: darken($blue, 10);
-    }
-  }
-}
-
 .card {
   background: $white;
   margin: auto;
@@ -67,7 +52,7 @@ footer{
 
   .tab-menu__item {
     cursor: pointer;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 300;
     text-align: left;
     text-transform: uppercase;
@@ -84,6 +69,60 @@ footer{
   }
 }
 
+//style search bar
+
+.search-bar{
+
+  display: inline-flex;
+  width: 100%;
+
+  .searchContainer{
+    display: inline-flex;
+    background: $lighter-gray;
+    margin: $small-spacing;
+    padding: $small-spacing;
+    border-radius: 3px;
+    width: 61%;
+  }
+
+  .searchIcon {
+    color: $dark-gray;
+    background: $lighter-gray;
+  }
+
+  input{
+    margin-left: 1%;
+    background: $lighter-gray;
+    border: 0;
+    font-size: 16px;
+    width: 95%;
+  }
+
+  .buttonContainer{
+    width: 39%;
+    margin: $small-spacing;
+    margin-left: 0;
+  }
+
+  button{
+    border-radius: 3px;
+    padding: $small-spacing;
+    text-decoration: none;
+    font-size: 16px;
+    width: 47.3%;
+
+    &.search {
+      margin-left: $small-spacing;
+      background: $blue;
+      color: $white;
+
+      &:hover {
+        background: darken($blue, 10);
+      }
+    }
+  }
+}
+
 // Style accordion tabs
 .accordion {
   cursor: pointer;
@@ -96,6 +135,7 @@ footer{
   border-top: 1px solid #a6afbe;
 }
 
+//
 .accordion:before {
   content: '\2303';
   font-size: 24px;
@@ -120,12 +160,26 @@ footer{
   transform: rotate(0deg);
 }
 
-// Style the accordion panel. Note: hidden by default
+// Style the accordion panel
 .panel {
   padding: 0 18px;
   background-color: white;
   display: none;
   overflow: hidden;
+}
+
+table{
+  width: 90%;
+
+  td{
+    width: 40%;
+    font-size: 14px;
+    font-weight: bold;
+    &.date{
+      width: 20%;
+      font-weight: normal;
+    }
+  }
 }
 
 .hidden {

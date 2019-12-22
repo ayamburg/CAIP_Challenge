@@ -1,8 +1,4 @@
 class PagesController < ApplicationController
-  def show
-    _ids = search('rails')[:items].collect{ |i| i[:id][:videoId] }
-    @videos = get_full_details(_ids)
-  end
 
   def search(query)
     yt = YoutubeInteractor.new(query, [])

@@ -1,6 +1,8 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <div class="page">
   <div class="page__header">
-    <h1>[Search Term]</h1>
+    <h1 id="search-term"></h1>
   </div>
 
   <div class="tabs">
@@ -11,32 +13,17 @@
   
     <div class="tab-content " id="page1">
       <div class="card no-pad box-shadow">
-        <button class="search"></button>
-        <div id="videos-accordion">
-          <button class="accordion">
-            <table style="width:80%">
-              <tr>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Age</th>
-              </tr>
-            </table>
-          </button>
-          <div class="panel">
-            <p>Lorem ipsum...</p>
+        <div class="search-bar">
+          <div class="searchContainer">
+            <i class="fa fa-search searchIcon"></i>
+            <input title="search" placeholder="Text">
           </div>
-
-          <button class="accordion">Section 2</button>
-          <div class="panel">
-            <p>Lorem ipsum...</p>
-          </div>
-
-          <button class="accordion">Section 3</button>
-          <div class="panel">
-            <p>Lorem ipsum...</p>
+          <div class="buttonContainer">
+            <button class="button reset">Reset</button>
+            <button class="button primary search">Search</button>
           </div>
         </div>
-        <%= @videos %>
+        <div id="videos-accordion"></div>
       </div>
     </div>
   
