@@ -16,5 +16,7 @@
 //= require jquery
 //= require tab-menu.js
 //= require accordion.js
+//= require build-accordion.js
+//= require build-graphs.js
 //= require get-videos.js
 //= require_tree .

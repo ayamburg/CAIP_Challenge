@@ -149,6 +149,10 @@ footer{
   }
 }
 
+.hidden {
+  display: none;
+}
+
 //
 .accordion:before {
   content: '\2303';
@@ -184,10 +188,6 @@ footer{
   .panel-top{
     display: inline-flex;
 
-    img{
-      width: 25%;
-    }
-
     .panel-text{
       margin-left: $small-spacing;
     }
@@ -208,6 +208,10 @@ footer{
   }
 }
 
-.hidden {
-  display: none;
+.bar-graph{
+  .y-axis {
+    g text{
+      display: none;
+    }
+  }
 }
