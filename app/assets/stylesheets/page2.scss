@@ -1,4 +1,4 @@
-.bar-graph{
+.bar-graph {
 
   .grid line {
     stroke: lightgrey;
@@ -10,14 +10,14 @@
     stroke-width: 0;
   }
 
-  .x-axis{
-    .tick line{
-      visibility:hidden;
+  .x-axis {
+    .tick line {
+      visibility: hidden;
     }
   }
 
   .y-axis {
-    g text{
+    g text {
       display: none;
     }
   }

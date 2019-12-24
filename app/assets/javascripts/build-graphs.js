@@ -1,8 +1,8 @@
-function buildBarGraph(videos){
+function buildBarGraph(videos) {
 
     //margins
-    var margin = {top: 20, right: 20, bottom: 30, left: 40},
-        width = 960 - margin.left - margin.right,
+    var margin = {top: 20, right: 20, bottom: 50, left: 40},
+        width = 900 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
 
     // set the ranges
@@ -24,10 +24,10 @@ function buildBarGraph(videos){
     items = videos['items'];
     var i;
     var data = [];
-    for(i = 0; i < items.length; i++){
+    for (i = 0; i < items.length; i++) {
         var item = items[i];
         var title = item['snippet']['title'];
-        if(title.length > 25){
+        if (title.length > 25) {
             title = title.substr(0, 25) + "...";
         }
         var views = parseInt(item['statistics']['viewCount']);
@@ -37,8 +37,12 @@ function buildBarGraph(videos){
     }
 
     // scale the range and domain
-    x.domain(data.map(function(d) { return d.title; }));
-    y.domain([0, d3.max(data, function(d) { return d.stat; })]);
+    x.domain(data.map(function (d) {
+        return d.title;
+    }));
+    y.domain([0, d3.max(data, function (d) {
+        return d.stat;
+    })]);
 
     // add the x Axis
     svg.append("g")
@@ -70,19 +74,58 @@ function buildBarGraph(videos){
         .data(data)
         .enter().append("rect")
         .attr("class", "bar")
-        .attr("x", function(d) { return x(d.title) + 40; })
+        .attr("x", function (d) {
+            return x(d.title) + 40;
+        })
         .attr("width", 80)
-        .attr("y", function(d) { return y(d.stat); })
-        .attr("height", function(d) { return height - y(d.stat); })
-        .style("fill", function(d) { return (d.color); })
-        .on("mouseover", function() { tooltip.style("display", null); })
-        .on("mouseout", function() { tooltip.style("display", "none"); })
-        .on("mousemove", function(d) {
+        .attr("y", function (d) {
+            return y(d.stat);
+        })
+        .attr("height", function (d) {
+            return height - y(d.stat);
+        })
+        .style("fill", function (d) {
+            return (d.color);
+        })
+        .on("mouseover", function () {
+            tooltip.style("display", null);
+        })
+        .on("mouseout", function () {
+            tooltip.style("display", "none");
+        })
+        .on("mousemove", function (d) {
             var xPosition = d3.mouse(this)[0] - 15;
             var yPosition = d3.mouse(this)[1] - 25;
             tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
             tooltip.select("text").text(d.tooltip);
         });
+
+    //legend
+    svg.append("rect")
+        .attr("x", 320)
+        .attr("y", 465)
+        .attr("width", 12)
+        .attr("height", 12)
+        .style("fill", "#64AEFF");
+    svg.append("rect")
+        .attr("x", 480)
+        .attr("y", 465)
+        .attr("width", 12)
+        .attr("height", 12)
+        .style("fill", "#AED5FF");
+    svg.append("text")
+        .attr("x", 340)
+        .attr("y", 471)
+        .text("View Count")
+        .style("font-size", "15px")
+        .attr("alignment-baseline", "middle");
+    svg.append("text")
+        .attr("x", 500)
+        .attr("y", 471)
+        .text("Like Count")
+        .style("font-size", "15px")
+        .attr("alignment-baseline", "middle");
+
 
     // tooltip
     var tooltip = svg.append("g")

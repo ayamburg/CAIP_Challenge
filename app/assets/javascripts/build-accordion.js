@@ -1,4 +1,4 @@
-function buildVideoAccordion(videos){
+function buildVideoAccordion(videos) {
     var items = videos['items'];
     var i;
 
@@ -19,7 +19,7 @@ function buildVideoAccordion(videos){
         var published = $("<td>");
         published.addClass("date");
         var publishedAt = new Date(item['snippet']['publishedAt']);
-        publishedAt = publishedAt.toLocaleString("en-US",  { year: 'numeric', month: 'long', day: 'numeric' });
+        publishedAt = publishedAt.toLocaleString("en-US", {year: 'numeric', month: 'long', day: 'numeric'});
         published.text(publishedAt);
         row.append(title);
         row.append(channel);
@@ -35,9 +35,9 @@ function buildVideoAccordion(videos){
         var link = $("<a>");
         link.attr("href", "https://www.youtube.com/watch?v=" + item['id']);
         var thumbnail = $("<img>");
-        if(item['snippet']['thumbnails']['standard']){
+        if (item['snippet']['thumbnails']['standard']) {
             thumbnail.attr('src', item['snippet']['thumbnails']['standard']['url']);
-        }else{
+        } else {
             thumbnail.attr('src', item['snippet']['thumbnails']['default']['url']);
         }
         link.append(thumbnail);
@@ -77,7 +77,7 @@ function buildVideoAccordion(videos){
         var tags = $("<td>");
         tags.addClass("tags");
         var tagList = item['snippet']['tags'];
-        if(tagList) {
+        if (tagList) {
             tags.text(tagList.join(', '));
         }
         statsRow.append(views);

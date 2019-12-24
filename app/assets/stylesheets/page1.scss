@@ -1,10 +1,10 @@
 //search bar
-.search-bar{
+.search-bar {
 
   display: inline-flex;
   width: 100%;
 
-  .searchContainer{
+  .searchContainer {
     display: inline-flex;
     background: $lighter-gray;
     margin: $small-spacing;
@@ -18,7 +18,7 @@
     background: $lighter-gray;
   }
 
-  input{
+  input {
     margin-left: 1%;
     background: $lighter-gray;
     border: 0;
@@ -26,13 +26,13 @@
     width: 95%;
   }
 
-  .buttonContainer{
+  .buttonContainer {
     width: 39%;
     margin: $small-spacing;
     margin-left: 0;
   }
 
-  button{
+  button {
     border-radius: 3px;
     padding: $small-spacing;
     text-decoration: none;
@@ -62,14 +62,14 @@
   transition: 0.4s;
   border-top: 1px solid #a6afbe;
 
-  table{
+  table {
     width: 90%;
 
-    td{
+    td {
       width: 40%;
       font-size: 14px;
       font-weight: bold;
-      &.date{
+      &.date {
         width: 20%;
         font-weight: normal;
       }
@@ -108,7 +108,7 @@
   display: none;
   overflow: hidden;
 
-  .panel-top{
+  .panel-top {
     display: inline-flex;
 
     img {
@@ -116,11 +116,11 @@
       max-width: 240px;
     }
 
-    .panel-text{
+    .panel-text {
       margin-left: $small-spacing;
     }
 
-    .label{
+    .label {
       margin-top: 0;
     }
 
@@ -130,20 +130,20 @@
     text-align: left;
     width: 100%;
 
-    th{
+    th {
       width: 25%;
     }
 
-    tr{
+    tr {
       width: 25%;
     }
 
-    .tags{
+    .tags {
       width: 50%;
     }
   }
 
-  .label{
+  .label {
     font-weight: normal;
     color: $blue-dark-gray;
   }

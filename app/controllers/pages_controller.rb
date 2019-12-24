@@ -11,7 +11,7 @@ class PagesController < ApplicationController
   end
 
   def videos
-    _ids = search(params['query'])[:items].collect{ |i| i[:id][:videoId] }
+    _ids = search(params['query'])[:items].collect {|i| i[:id][:videoId]}
     render json: get_full_details(_ids)
   end
 end

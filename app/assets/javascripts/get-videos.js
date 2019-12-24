@@ -1,21 +1,21 @@
-$(window).on('load', function() {
+$(window).on('load', function () {
     Search("Ruby on Rails");
 });
 
-$(document).on('click', '.search', function() {
+$(document).on('click', '.search', function () {
     var query = $("#search").val();
     Search(query);
 });
 
-$(document).on('click', '.reset', function() {
+$(document).on('click', '.reset', function () {
     Search("Ruby on Rails");
 });
 
-function Search(query){
+function Search(query) {
     $.ajax({
         url: "/api/youtube/videos?query=" + query
     })
-        .done(function( data ) {
+        .done(function (data) {
             var barGraph = $('#bar-graph');
             var videosAccordion = $('#videos-accordion');
             barGraph.empty();
