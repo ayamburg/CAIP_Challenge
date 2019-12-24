@@ -188,6 +188,11 @@ footer{
   .panel-top{
     display: inline-flex;
 
+    img {
+      max-height: 180px;
+      max-width: 240px;
+    }
+
     .panel-text{
       margin-left: $small-spacing;
     }
@@ -195,11 +200,24 @@ footer{
     .label{
       margin-top: 0;
     }
+
   }
 
   table {
     text-align: left;
     width: 100%;
+
+    th{
+      width: 25%;
+    }
+
+    tr{
+      width: 25%;
+    }
+
+    .tags{
+      width: 50%;
+    }
   }
 
   .label{
@@ -209,6 +227,23 @@ footer{
 }
 
 .bar-graph{
+
+  .grid line {
+    stroke: lightgrey;
+    stroke-opacity: 0.7;
+    shape-rendering: crispEdges;
+  }
+
+  .grid path {
+    stroke-width: 0;
+  }
+
+  .x-axis{
+    .tick line{
+      visibility:hidden;
+    }
+  }
+
   .y-axis {
     g text{
       display: none;

@@ -33,8 +33,15 @@ function buildVideoAccordion(videos){
         panel.addClass('panel');
         var panelTop = $("<div>");
         panelTop.addClass('panel-top');
+        var link = $("<a>");
+        link.attr("href", "https://www.youtube.com/watch?v=" + item['id']);
         var thumbnail = $("<img>");
-        thumbnail.attr('src', item['snippet']['thumbnails']['default']['url']);
+        if(item['snippet']['thumbnails']['standard']){
+            thumbnail.attr('src', item['snippet']['thumbnails']['standard']['url']);
+        }else{
+            thumbnail.attr('src', item['snippet']['thumbnails']['default']['url']);
+        }
+        link.append(thumbnail);
         var panelText = $("<div>");
         panelText.addClass('panel-text');
         var descriptionLabel = $("<p>");
@@ -44,7 +51,7 @@ function buildVideoAccordion(videos){
         description.text(item['snippet']['description']);
         panelText.append(descriptionLabel);
         panelText.append(description);
-        panelTop.append(thumbnail);
+        panelTop.append(link);
         panelTop.append(panelText);
         panel.append(panelTop);
 
@@ -57,7 +64,7 @@ function buildVideoAccordion(videos){
         likesLabel.addClass('label');
         likesLabel.text("LIKE COUNT");
         var tagsLabel = $("<th>");
-        tagsLabel.addClass('label');
+        tagsLabel.addClass('tags label');
         tagsLabel.text("TAGS");
         statsLabelsRow.append(viewsLabel);
         statsLabelsRow.append(likesLabel);
@@ -69,6 +76,7 @@ function buildVideoAccordion(videos){
         var likes = $("<td>");
         likes.text(item['statistics']['likeCount']);
         var tags = $("<td>");
+        tags.addClass("tags");
         var tagList = item['snippet']['tags'];
         if(tagList) {
             tags.text(tagList.join(', '));
