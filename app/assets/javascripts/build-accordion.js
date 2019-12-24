@@ -3,7 +3,6 @@ function buildVideoAccordion(videos){
     var i;
 
     var videosAccordion = $('#videos-accordion');
-    videosAccordion.empty();
 
     for (i = 0; i < items.length; i++) {
         item = items[i];

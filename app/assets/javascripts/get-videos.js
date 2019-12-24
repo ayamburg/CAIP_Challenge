@@ -16,7 +16,10 @@ function Search(query){
         url: "/api/youtube/videos?query=" + query
     })
         .done(function( data ) {
-            console.log(data);
+            var barGraph = $('#bar-graph');
+            var videosAccordion = $('#videos-accordion');
+            barGraph.empty();
+            videosAccordion.empty();
             buildVideoAccordion(data);
             buildBarGraph(data);
             $('#search-term').text(query);

@@ -1,4 +1,6 @@
 function buildBarGraph(videos){
+
+    //margins
     var margin = {top: 20, right: 20, bottom: 30, left: 40},
         width = 960 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
@@ -10,9 +12,7 @@ function buildBarGraph(videos){
     var y = d3.scaleLinear()
         .range([height, 0]);
 
-    // append the svg object to the body of the page
-    // append a 'group' element to 'svg'
-    // moves the 'group' element to the top left margin
+    // append the svg to the body of the page
     var svg = d3.select(".bar-graph").append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
@@ -36,7 +36,7 @@ function buildBarGraph(videos){
         data.push({title: title, stat: likes, color: "#64AEFF", tooltip: "views: " + views + " likes: " + likes});
     }
 
-    // Scale the range and domain
+    // scale the range and domain
     x.domain(data.map(function(d) { return d.title; }));
     y.domain([0, d3.max(data, function(d) { return d.stat; })]);
 
@@ -52,7 +52,7 @@ function buildBarGraph(videos){
             .ticks(10)
     }
 
-    //Add y gridlines
+    //add y gridlines
     svg.append("g")
         .attr("class", "grid")
         .call(make_y_gridlines()
@@ -65,7 +65,7 @@ function buildBarGraph(videos){
         .call(d3.axisLeft(y))
         .attr("class", "y-axis");
 
-    // append the rectangles for the bar chart
+    // add the rectangles for the bar chart
     svg.selectAll(".bar")
         .data(data)
         .enter().append("rect")
@@ -84,7 +84,7 @@ function buildBarGraph(videos){
             tooltip.select("text").text(d.tooltip);
         });
 
-    // Prep the tooltip bits, initial display is hidden
+    // tooltip
     var tooltip = svg.append("g")
         .attr("class", "tooltip")
         .style("display", "none");
